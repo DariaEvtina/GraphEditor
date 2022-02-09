@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,15 @@ namespace GraphEditor
 {
     public partial class Form1 : Form
     {
+        bool drawing;
+        GraphicsPath currentPath;
+        Point oldLocation;
+        Pen currentPen;
         public Form1()
         {
             InitializeComponent();
+            drawing = false;
+            currentPen = new Pen(Color.Black);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -83,6 +90,49 @@ namespace GraphEditor
                 MessageBox.Show("Create a new file first!");
                 return;
             }
+            if (e.Button==MouseButtons.Left)
+            {
+
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OP = new OpenFileDialog();
+            OP.Filter = "JPEG Image|*.jpg|Bitmap Image|*.bmp|GIF Image|*.gif|PNG Image|*.png";
+            OP.Title = "Open an image file";
+            OP.FilterIndex = 4;
+            if (OP.ShowDialog() != DialogResult.Cancel)
+            {
+                picDrawingSurface.Load(OP.FileName);
+                picDrawingSurface.AutoSize = true;
+            }
+            
+        }
+
+        private void toolStripbtn1_Click(object sender, EventArgs e)
+        {
+            newToolStripMenuItem_Click(sender, e);
+        }
+
+        private void toolStripbtn2_Click(object sender, EventArgs e)
+        {
+            openToolStripMenuItem_Click(sender, e);
+        }
+
+        private void toolStripbtn3_Click(object sender, EventArgs e)
+        {
+            saveToolStripMenuItem_Click(sender, e);
+        }
+
+        private void picDrawingSurface_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void picDrawingSurface_MouseMove(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

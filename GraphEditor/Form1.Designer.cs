@@ -133,6 +133,7 @@
             this.toolStripbtn1.Name = "toolStripbtn1";
             this.toolStripbtn1.Size = new System.Drawing.Size(102, 104);
             this.toolStripbtn1.Text = "toolStripButton1";
+            this.toolStripbtn1.Click += new System.EventHandler(this.toolStripbtn1_Click);
             // 
             // toolStripbtn2
             // 
@@ -143,6 +144,7 @@
             this.toolStripbtn2.Name = "toolStripbtn2";
             this.toolStripbtn2.Size = new System.Drawing.Size(102, 104);
             this.toolStripbtn2.Text = "toolStripButton2";
+            this.toolStripbtn2.Click += new System.EventHandler(this.toolStripbtn2_Click);
             // 
             // toolStripbtn3
             // 
@@ -153,6 +155,7 @@
             this.toolStripbtn3.Name = "toolStripbtn3";
             this.toolStripbtn3.Size = new System.Drawing.Size(102, 104);
             this.toolStripbtn3.Text = "toolStripButton3";
+            this.toolStripbtn3.Click += new System.EventHandler(this.toolStripbtn3_Click);
             // 
             // toolStripbtn4
             // 
@@ -193,6 +196,7 @@
             this.openToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -361,6 +365,8 @@
             this.picDrawingSurface.TabIndex = 0;
             this.picDrawingSurface.TabStop = false;
             this.picDrawingSurface.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picDrawingSurface_MouseDown);
+            this.picDrawingSurface.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picDrawingSurface_MouseMove);
+            this.picDrawingSurface.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picDrawingSurface_MouseUp);
             // 
             // Form1
             // 

@@ -15,6 +15,7 @@ namespace GraphEditor
     public partial class Form1 : Form
     {
         bool drawing;
+        Form2 f2 = new Form2(Color.Black);
         int historyCounter;
         GraphicsPath currentPath;
         Point oldLocation;

@@ -12,6 +12,7 @@ namespace GraphEditor
 {
     public partial class Form2 : Form
     {
+        Color colorResult;
         public Form2(Color color)
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace GraphEditor
             ScrollBar scrl = (ScrollBar)sender;
             NumericUpDown nmrUpDown = (NumericUpDown)scrl.Tag;
             nmrUpDown.Value = scrl.Value;
+            UpdateColor();
         }
 
         private void GreenBarr_ValueChanged(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace GraphEditor
             ScrollBar scrl = (ScrollBar)sender;
             NumericUpDown nmrUpDown = (NumericUpDown)scrl.Tag;
             nmrUpDown.Value = scrl.Value;
+            UpdateColor();
         }
 
         private void BlueBarr_ValueChanged(object sender, EventArgs e)
@@ -52,6 +55,68 @@ namespace GraphEditor
             ScrollBar scrl = (ScrollBar)sender;
             NumericUpDown nmrUpDown = (NumericUpDown)scrl.Tag;
             nmrUpDown.Value = scrl.Value;
+            UpdateColor();
+        }
+
+        private void numericUpDownRed_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown nmrUpDown = (NumericUpDown)sender;
+            ScrollBar scrl = (ScrollBar)nmrUpDown.Tag;
+            scrl.Value = (int)nmrUpDown.Value;
+            UpdateColor();
+        }
+
+        private void numericUpDownGreen_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown nmrUpDown = (NumericUpDown)sender;
+            ScrollBar scrl = (ScrollBar)nmrUpDown.Tag;
+            scrl.Value = (int)nmrUpDown.Value;
+            UpdateColor();
+        }
+
+        private void numericUpDownBlue_ValueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown nmrUpDown = (NumericUpDown)sender;
+            ScrollBar scrl = (ScrollBar)nmrUpDown.Tag;
+            scrl.Value = (int)nmrUpDown.Value;
+            UpdateColor();
+        }
+        private void UpdateColor()
+        {
+            colorResult = Color.FromArgb(RedBarr.Value, GreenBarr.Value, BlueBarr.Value);
+            Color_Pic.BackColor = colorResult;
+        }
+
+        private void OtherColors_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                RedBarr.Value = colorDialog.Color.R;
+                GreenBarr.Value = colorDialog.Color.G; 
+                BlueBarr.Value = colorDialog.Color.B;
+                colorResult = colorDialog.Color;
+                UpdateColor();
+            }
+        }
+        public Color Data
+        {
+            get
+            {
+                return colorResult;
+            }
+        }
+
+        private void Ok_btn_Click(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            f.currentPen.Color = colorResult;
+            this.Close();
+        }
+
+        private void Cancel_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

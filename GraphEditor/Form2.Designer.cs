@@ -37,7 +37,7 @@
             this.Color_Pic = new System.Windows.Forms.PictureBox();
             this.Ok_btn = new System.Windows.Forms.Button();
             this.Cancel_btn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.OtherColors = new System.Windows.Forms.Button();
             this.numericUpDownRed = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownGreen = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownBlue = new System.Windows.Forms.NumericUpDown();
@@ -121,6 +121,7 @@
             this.Ok_btn.TabIndex = 7;
             this.Ok_btn.Text = "Ok";
             this.Ok_btn.UseVisualStyleBackColor = true;
+            this.Ok_btn.Click += new System.EventHandler(this.Ok_btn_Click);
             // 
             // Cancel_btn
             // 
@@ -130,15 +131,17 @@
             this.Cancel_btn.TabIndex = 8;
             this.Cancel_btn.Text = "Cancel";
             this.Cancel_btn.UseVisualStyleBackColor = true;
+            this.Cancel_btn.Click += new System.EventHandler(this.Cancel_btn_Click);
             // 
-            // button1
+            // OtherColors
             // 
-            this.button1.Location = new System.Drawing.Point(360, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Other Color";
-            this.button1.UseVisualStyleBackColor = true;
+            this.OtherColors.Location = new System.Drawing.Point(360, 151);
+            this.OtherColors.Name = "OtherColors";
+            this.OtherColors.Size = new System.Drawing.Size(75, 23);
+            this.OtherColors.TabIndex = 9;
+            this.OtherColors.Text = "Other Color";
+            this.OtherColors.UseVisualStyleBackColor = true;
+            this.OtherColors.Click += new System.EventHandler(this.OtherColors_Click);
             // 
             // numericUpDownRed
             // 
@@ -151,6 +154,7 @@
             this.numericUpDownRed.Name = "numericUpDownRed";
             this.numericUpDownRed.Size = new System.Drawing.Size(52, 20);
             this.numericUpDownRed.TabIndex = 10;
+            this.numericUpDownRed.ValueChanged += new System.EventHandler(this.numericUpDownRed_ValueChanged);
             // 
             // numericUpDownGreen
             // 
@@ -163,6 +167,7 @@
             this.numericUpDownGreen.Name = "numericUpDownGreen";
             this.numericUpDownGreen.Size = new System.Drawing.Size(52, 20);
             this.numericUpDownGreen.TabIndex = 11;
+            this.numericUpDownGreen.ValueChanged += new System.EventHandler(this.numericUpDownGreen_ValueChanged);
             // 
             // numericUpDownBlue
             // 
@@ -175,6 +180,7 @@
             this.numericUpDownBlue.Name = "numericUpDownBlue";
             this.numericUpDownBlue.Size = new System.Drawing.Size(52, 20);
             this.numericUpDownBlue.TabIndex = 12;
+            this.numericUpDownBlue.ValueChanged += new System.EventHandler(this.numericUpDownBlue_ValueChanged);
             // 
             // Form2
             // 
@@ -184,7 +190,7 @@
             this.Controls.Add(this.numericUpDownBlue);
             this.Controls.Add(this.numericUpDownGreen);
             this.Controls.Add(this.numericUpDownRed);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.OtherColors);
             this.Controls.Add(this.Cancel_btn);
             this.Controls.Add(this.Ok_btn);
             this.Controls.Add(this.Color_Pic);
@@ -216,7 +222,7 @@
         private System.Windows.Forms.PictureBox Color_Pic;
         private System.Windows.Forms.Button Ok_btn;
         private System.Windows.Forms.Button Cancel_btn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button OtherColors;
         private System.Windows.Forms.NumericUpDown numericUpDownRed;
         private System.Windows.Forms.NumericUpDown numericUpDownGreen;
         private System.Windows.Forms.NumericUpDown numericUpDownBlue;

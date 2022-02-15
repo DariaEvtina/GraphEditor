@@ -19,7 +19,6 @@ namespace GraphEditor
         GraphicsPath currentPath;
         Point oldLocation;
         public Pen currentPen;
-        Color historyColor;
         List<Image> History;
         public Form1()
         {
@@ -126,6 +125,9 @@ namespace GraphEditor
             {
                 picDrawingSurface.Load(OP.FileName);
                 picDrawingSurface.AutoSize = true;
+                History.Clear();
+                historyCounter = 0;
+                History.Add(new Bitmap(picDrawingSurface.Image));
             }
             
         }
@@ -218,6 +220,13 @@ namespace GraphEditor
             solidToolStripMenuItem.Checked = false;
             dotToolStripMenuItem.Checked = false;
             dashdotdotToolStripMenuItem.Checked = true;
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2(currentPen.Color);
+            f.ShowDialog();
+
         }
     }
 }

@@ -211,8 +211,9 @@
             // 
             this.colorToolStripMenuItem.Image = global::GraphEditor.Properties.Resources.IMG_1875;
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.colorToolStripMenuItem.Text = "Color";
+            this.colorToolStripMenuItem.Click += new System.EventHandler(this.colorToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

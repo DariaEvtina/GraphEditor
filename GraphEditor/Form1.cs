@@ -15,14 +15,18 @@ namespace GraphEditor
     public partial class Form1 : Form
     {
         bool drawing;
+        int historyCounter;
         GraphicsPath currentPath;
         Point oldLocation;
-        Pen currentPen;
+        public Pen currentPen;
+        Color historyColor;
+        List<Image> History;
         public Form1()
         {
             InitializeComponent();
             drawing = false;
             currentPen = new Pen(Color.Black);
+            History = new List<Image>();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,8 +43,14 @@ namespace GraphEditor
         {
             if (picDrawingSurface.Image == null)
             {
+                History.Clear();
+                historyCounter = 0;
                 Bitmap pic = new Bitmap(737, 430);
                 picDrawingSurface.Image = pic;
+                History.Add(new Bitmap(picDrawingSurface.Image));
+                Graphics g = Graphics.FromImage(picDrawingSurface.Image);
+                g.Clear(Color.White);
+                g.DrawImage(picDrawingSurface.Image, 0, 0, 737, 430);
             }
             if (picDrawingSurface.Image != null)
             {
@@ -81,7 +91,7 @@ namespace GraphEditor
                 fs.Close();
             }
         }
-
+        
 
         private void picDrawingSurface_MouseDown(object sender, MouseEventArgs e)
         {
@@ -92,7 +102,17 @@ namespace GraphEditor
             }
             if (e.Button==MouseButtons.Left)
             {
-
+                drawing = true;
+                oldLocation = e.Location;
+                currentPath = new GraphicsPath();
+                currentPen.Color = Color.Black;
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                drawing = true;
+                oldLocation = e.Location;
+                currentPath = new GraphicsPath();
+                currentPen.Color = Color.White;
             }
         }
 
@@ -127,12 +147,77 @@ namespace GraphEditor
 
         private void picDrawingSurface_MouseUp(object sender, MouseEventArgs e)
         {
-
+            History.RemoveRange(historyCounter + 1, History.Count - historyCounter - 1);
+            History.Add(new Bitmap(picDrawingSurface.Image));
+            if (historyCounter+1<10){ historyCounter++; }
+            if (History.Count - 1==10) { History.RemoveAt(0); }
+            drawing = false;
+            try
+            {
+                currentPath.Dispose();
+            }
+            catch { };
         }
 
         private void picDrawingSurface_MouseMove(object sender, MouseEventArgs e)
         {
+            labe_XY.Text = e.X.ToString() + " ; " + e.Y.ToString();
+            if (drawing)
+            {
+                Graphics g = Graphics.FromImage(picDrawingSurface.Image);
+                currentPath.AddLine(oldLocation, e.Location);
+                g.DrawPath(currentPen, currentPath);
+                oldLocation = e.Location;
+                g.Dispose();
+                picDrawingSurface.Invalidate();
+            }
+        }
 
+        private void trackBar_Scroll(object sender, EventArgs e)
+        {
+            currentPen.Width = trackBar.Value;
+        }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (History.Count != 0 && historyCounter != 0)
+            {
+                picDrawingSurface.Image = new Bitmap(History[--historyCounter]);
+            }
+            else{ MessageBox.Show("History is empty"); }
+        }
+
+        private void renoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (historyCounter<History.Count-1)
+            {
+                picDrawingSurface.Image = new Bitmap(History[++historyCounter]);
+            }
+            else { MessageBox.Show("History is empty"); }
+        }
+
+        private void solidToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentPen.DashStyle = DashStyle.Solid;
+            solidToolStripMenuItem.Checked = true;
+            dotToolStripMenuItem.Checked = false;
+            dashdotdotToolStripMenuItem.Checked = false;
+        }
+
+        private void dotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentPen.DashStyle = DashStyle.Dot;
+            solidToolStripMenuItem.Checked = false;
+            dotToolStripMenuItem.Checked = true;
+            dashdotdotToolStripMenuItem.Checked = false;
+        }
+
+        private void dashdotdotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentPen.DashStyle = DashStyle.DashDotDot;
+            solidToolStripMenuItem.Checked = false;
+            dotToolStripMenuItem.Checked = false;
+            dashdotdotToolStripMenuItem.Checked = true;
         }
     }
 }

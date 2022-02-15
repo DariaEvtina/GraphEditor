@@ -12,7 +12,7 @@ namespace GraphEditor
 {
     public partial class Form2 : Form
     {
-        Color colorResult;
+        Color colorResult = Color.Black;
         public Form2(Color color)
         {
             InitializeComponent();

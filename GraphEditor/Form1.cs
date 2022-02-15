@@ -229,5 +229,15 @@ namespace GraphEditor
             f.ShowDialog();
 
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void toolStripbtn5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

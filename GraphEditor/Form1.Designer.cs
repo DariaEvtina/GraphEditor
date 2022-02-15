@@ -96,7 +96,7 @@
             this.newToolStripMenuItem.Image = global::GraphEditor.Properties.Resources.IMG_1882;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -106,7 +106,7 @@
             this.openToolStripMenuItem.Image = global::GraphEditor.Properties.Resources.IMG_1872;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -116,7 +116,7 @@
             this.saveToolStripMenuItem.Image = global::GraphEditor.Properties.Resources.IMG_1874;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -126,8 +126,9 @@
             this.exitToolStripMenuItem.Image = global::GraphEditor.Properties.Resources.IMG_1876;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -185,7 +186,7 @@
             // 
             this.dotToolStripMenuItem.CheckOnClick = true;
             this.dotToolStripMenuItem.Name = "dotToolStripMenuItem";
-            this.dotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dotToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.dotToolStripMenuItem.Text = "dot";
             this.dotToolStripMenuItem.Click += new System.EventHandler(this.dotToolStripMenuItem_Click);
             // 
@@ -195,7 +196,7 @@
             this.solidToolStripMenuItem.CheckOnClick = true;
             this.solidToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.solidToolStripMenuItem.Name = "solidToolStripMenuItem";
-            this.solidToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.solidToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.solidToolStripMenuItem.Text = "solid";
             this.solidToolStripMenuItem.Click += new System.EventHandler(this.solidToolStripMenuItem_Click);
             // 
@@ -203,7 +204,7 @@
             // 
             this.dashdotdotToolStripMenuItem.CheckOnClick = true;
             this.dashdotdotToolStripMenuItem.Name = "dashdotdotToolStripMenuItem";
-            this.dashdotdotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dashdotdotToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.dashdotdotToolStripMenuItem.Text = "dash-dot-dot";
             this.dashdotdotToolStripMenuItem.Click += new System.EventHandler(this.dashdotdotToolStripMenuItem_Click);
             // 
@@ -301,6 +302,7 @@
             this.toolStripbtn5.Name = "toolStripbtn5";
             this.toolStripbtn5.Size = new System.Drawing.Size(102, 104);
             this.toolStripbtn5.Text = "toolStripButton5";
+            this.toolStripbtn5.Click += new System.EventHandler(this.toolStripbtn5_Click);
             // 
             // panel1
             // 
@@ -317,7 +319,7 @@
             this.picDrawingSurface.BackColor = System.Drawing.SystemColors.HighlightText;
             this.picDrawingSurface.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picDrawingSurface.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picDrawingSurface.Location = new System.Drawing.Point(5, 3);
+            this.picDrawingSurface.Location = new System.Drawing.Point(1, 4);
             this.picDrawingSurface.Name = "picDrawingSurface";
             this.picDrawingSurface.Size = new System.Drawing.Size(673, 446);
             this.picDrawingSurface.TabIndex = 0;

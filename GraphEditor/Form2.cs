@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +12,7 @@ namespace GraphEditor
 {
     public partial class Form2 : Form
     {
+        Form1 f = new Form1();
         Color colorResult = Color.Black;
         public Form2(Color color)
         {
@@ -109,14 +110,14 @@ namespace GraphEditor
 
         private void Ok_btn_Click(object sender, EventArgs e)
         {
-            Form1 f = new Form1();
+
             f.currentPen.Color = colorResult;
-            this.Close();
+            this.Hide();
         }
 
         private void Cancel_btn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
     }
 }

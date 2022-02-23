@@ -117,7 +117,7 @@ namespace GraphEditor
             this.Hide();
             //Program.f1.picDrawingSurface.BackColor = colorResult;
             //Program.f1.EpicDrawingSurface.Size = new Size(x,y);
-            Program.f1.Backcolor= colorResult;
+            //Program.f1.Backcolor= colorResult;
         }
 
         private void Cancel_btn_Click(object sender, EventArgs e)

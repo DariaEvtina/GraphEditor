@@ -32,7 +32,7 @@ namespace GraphEditor
             currentPen = new Pen(color);
             History = new List<Image>();
         }
-        public Form1(Size size, Color pic,Color pen)
+        /*public Form1(Size size, Color pic,Color pen)
         {
             InitializeComponent();
             drawing = false;
@@ -43,7 +43,7 @@ namespace GraphEditor
             picDrawingSurface.Size = size;
             Backcolor = pic;
             //picDrawingSurface.Location = location;
-        }
+        }*/
         private void label1_Click(object sender, EventArgs e)
         {
 

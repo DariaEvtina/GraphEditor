@@ -111,8 +111,8 @@ namespace GraphEditor
         private void Ok_btn_Click(object sender, EventArgs e)
         {
 
-            Program.f1.currentPen.Color = colorResult;
-            Program.f1.color = colorResult;
+           // Program.f1.currentPen.Color = colorResult;
+            //Program.f1.color = colorResult;
             this.Hide();
         }
 
